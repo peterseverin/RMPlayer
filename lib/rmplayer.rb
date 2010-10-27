@@ -1,0 +1,1 @@
+require 'rmplayer/app'

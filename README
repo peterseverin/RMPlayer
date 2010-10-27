@@ -1,0 +1,10 @@
+= RMPlayer =
+
+Remote MPlayer. VLC HTTP interface implementation for MPlayer.
+
+Tested using VLC Remote Android app.
+
+= Usage =
+
+rmplayer [mplayer options] file_name
+
