@@ -4,7 +4,7 @@ require 'rake/testtask'
 require 'rake/clean'
 
 PKG_NAME = 'rmplayer'
-PKG_VERSION = "1.0"
+PKG_VERSION = "1.0.1"
 
 PKG_FILES = FileList[
   '[A-Z]*',
