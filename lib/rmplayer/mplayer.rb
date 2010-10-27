@@ -9,7 +9,7 @@ class MPlayer
 		pstdin, pstdout, pstderr = IO.pipe, IO.pipe, IO.pipe
 
 		command = %w(/usr/bin/mplayer -slave -quiet) + args
-		fork do
+		@pid = fork do
 			STDIN.reopen pstdin.first
 			pstdin.last.close
 
@@ -72,7 +72,12 @@ class MPlayer
 	end
 
 	def quit
-		send('quit')
+		begin
+			send('quit')
+		ensure
+			Process.waitpid(@pid) if @pid
+			@pid = nil
+		end
 	end
 
 	def seek(value)
