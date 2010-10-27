@@ -2,9 +2,16 @@
 
 Remote MPlayer. VLC HTTP interface implementation for MPlayer.
 
-Tested using VLC Remote Android app.
+Basically rmplayer lets you use VLC Remote app for Android to control MPlayer instead of VLC. It may work with other VLC apps but it wasn't tested.
+
+= Install =
+
+gem install rmplayer
 
 = Usage =
 
 rmplayer [mplayer options] file_name
 
+= Contributing =
+
+If you find this project useful don't hesitate to contribute to it. Right now things might be rough around the edges. It just scratches my own itch. Make it scratch yours.
