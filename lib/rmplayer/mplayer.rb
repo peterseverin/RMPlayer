@@ -81,7 +81,9 @@ class MPlayer
 	end
 
 	def seek(value)
-		send("seek #{value} 2")
+		sign = value.to_s[0, 1]
+		type = ['+', '-'].include?(sign) ? 0 : 2
+		send("seek #{value} #{type}")
 	end
 
 	def volume=(value)

@@ -37,7 +37,7 @@ class App
 				when 'fullscreen'
 					@mplayer.toggle_fullscreen
 				when 'seek'
-					val = req.query['val'].to_i
+					val = req.query['val']
 					@mplayer.seek(val)
 				when 'volume'
 					val = req.query['val'].to_i
