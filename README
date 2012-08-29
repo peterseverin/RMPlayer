@@ -2,15 +2,32 @@
 
 Remote MPlayer. VLC HTTP interface implementation for MPlayer.
 
-Basically rmplayer lets you use VLC Remote app for Android to control MPlayer instead of VLC. It may work with other VLC apps but it wasn't tested.
+Basically RMPlayer is a Ruby script that lets you use the 'VLC Remote' app for Android to control MPlayer  (instead of VLC) with your phone. It may work with other Android VLC apps but it wasn't tested.
 
 = Install =
-
+To install the script, install the 'rubygems' package (assuming you are using Ubuntu Linux, but it should be similar on other distros). Then as root run:
 gem install rmplayer
 
-= Usage =
+Check that the installation has proceeded as expected by running: 
+gem list --local
 
+If you spot a line containing 'rmplayer (1.0.1)', then you have the script installed. Next you have to make sure that the script is in your PATH. One way to do this is to first locate the script: 
+updatedb
+locate bin/rmplayer
+
+Then you should see a line similar to: 
+/var/lib/gems/1.8/bin/rmplayer
+
+At this point simply create a symlink to /usr/local/bin (assuming that the latter is in your PATH): 
+ln -s /var/lib/gems/1.8/bin/rmplayer /usr/local/bin/rmplayer
+
+= Usage =
+To use the script, connect your computer and Android phone to the same Wi-Fi network. Next you run RMPlayer like this:
 rmplayer [mplayer options] file_name
+
+Then it will open an MPlayer instance and at the same time start listening to the 8080 port using the VLC HTTP server. (It may be necessary to have first enabled the HTTP server in VLC: http://code.google.com/p/android-vlc-remote/ .) All you need to do next is to open 'VLC Remote' on Android and scan for VLC servers. 
+
+If your VLC server is correctly configured (make sure to use the correct IP address of your computer) and your firewall is configured to accept incoming connections from your phone's IP address to your computer's 8080 port (be sure to check this, as the firewall---Gufw on Ubuntu---might be blocking all incoming connections), then all should work out of the box. Otherwise see the troubleshooting section on 'VLC Remote' ( http://code.google.com/p/android-vlc-remote/ ). 
 
 = Contributing =
 
